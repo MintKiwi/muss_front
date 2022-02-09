@@ -9,7 +9,7 @@ import {
 import { Link, Navigate } from "react-router-dom";
 
 import { useEffect } from "react";
-
+import axios from "axios";
 const HomePage = () => {
   const [state, setState] = useState({
     roomCode: null,
@@ -29,7 +29,8 @@ const HomePage = () => {
   // });
 
   useEffect(() => {
-     fetch("api/user-in-room")
+    //  fetch("api/user-in-room")
+     axios.get('https://pppsd.herokuapp.com/api/user-in-room')
       .then((response) => response.json())
       .then((data) => {
         setState({ roomCode: data.code });

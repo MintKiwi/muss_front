@@ -17,7 +17,7 @@ import {
   Box,
 } from "@material-ui/core";
 import Room from "./Room";
-
+import axios from "axios";
 // const defaultVotes = 2;
 
 const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=true,updateCallback=()=>{}}) => {
@@ -42,7 +42,9 @@ const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=
     };
     
     //send a request to the local host with requestOptions, take the response and convert it to json,
-    fetch("/api/create-room", requestOptions)
+    // fetch("/api/create-room"
+    axios.put('https://pppsd.herokuapp.com/api/create-room'
+    , requestOptions)
       .then((response) => response.json())
       .then((data) => navigate("/room/" + data.code));
   };
@@ -63,7 +65,9 @@ const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=
     };
     
     //send a request to the local host with requestOptions, take the response and convert it to json,
-    fetch("/api/update-room", requestOptions)
+    // fetch("/api/update-room"
+    axios.patch('https://pppsd.herokuapp.com/api/update-room'
+    , requestOptions)
       .then((response) => {
         if(response.ok){
             alert("Update successfully")

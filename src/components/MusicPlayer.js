@@ -3,6 +3,8 @@ import{Grid, Typography,Card,IconButton,LinearProgress} from "@material-ui/core"
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import PauseIcon from "@material-ui/icons/Pause";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import Plyer from "./Plyer";
+import axios from "axios";
 
 const MusicPlayer=(prop)=>{
     const props={...prop.song}
@@ -13,7 +15,8 @@ const MusicPlayer=(prop)=>{
             headers:{'Content-Type':'application/json'},
 
         }
-        fetch('/spotify/pause-song',requestOptions)
+        axios.put('https://pppsd.herokuapp.com/spotify/pause-song',requestOptions)
+        // fetch('/spotify/pause-song',requestOptions)
     }
 
     const playSong=()=>{
@@ -22,14 +25,16 @@ const MusicPlayer=(prop)=>{
             headers:{'Content-Type':'application/json'},
 
         }
-        fetch('/spotify/play-song',requestOptions)
+        axios.put('https://pppsd.herokuapp.com/spotify/play-song',requestOptions)
+        // fetch('/spotify/play-song',requestOptions)
     }
     const skipSong=()=>{
         const requestOptions={
             method:'POST',
             headers:{'Content-Type':'application/json'}
         }
-        fetch('/spotify/skip-song',requestOptions)
+        axios.put('https://pppsd.herokuapp.com/spotify/skip-song',requestOptions)
+        // fetch('/spotify/skip-song',requestOptions)
     }
   
     
@@ -38,6 +43,7 @@ const MusicPlayer=(prop)=>{
             <Grid container alignItems="center">
                 <Grid item align="center" xs={4}>
                     <img src={props.image_url} height="100%" width="100%" />
+                    < Plyer {...prop}/>
                 </Grid>
                 <Grid item align="center" xs={8}>
                     <Typography component="h5" variant="h5">

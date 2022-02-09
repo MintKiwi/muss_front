@@ -7,7 +7,7 @@ import {
   Container,
 } from "@material-ui/core";
 import { Link,useNavigate } from "react-router-dom";
-
+import axios from "axios";
 const RoomJoinPage = () => {
   const [state, setState] = useState({
     roomCode: "",
@@ -22,7 +22,9 @@ const RoomJoinPage = () => {
           code: state.roomCode
         }),
       };
-      fetch('/api/join-room',requestOptions).then((response)=>{
+      // fetch('/api/join-room'
+      axios.post('https://pppsd.herokuapp.com/api/join-room'
+      ,requestOptions).then((response)=>{
           if (response.ok){
              navigate(`/room/${state.roomCode}`)
           }
