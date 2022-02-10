@@ -15,7 +15,7 @@ const MusicPlayer=(prop)=>{
             headers:{'Content-Type':'application/json'},
 
         }
-        axios.put('https://pppsd.herokuapp.com/spotify/pause-song',requestOptions)
+        axios.put('http://ppsw.herokuapp.com/spotify/pause-song',requestOptions)
         // fetch('/spotify/pause-song',requestOptions)
     }
 
@@ -25,7 +25,7 @@ const MusicPlayer=(prop)=>{
             headers:{'Content-Type':'application/json'},
 
         }
-        axios.put('https://pppsd.herokuapp.com/spotify/play-song',requestOptions)
+        axios.put('http://ppsw.herokuapp.com/spotify/play-song',requestOptions)
         // fetch('/spotify/play-song',requestOptions)
     }
     const skipSong=()=>{
@@ -33,7 +33,7 @@ const MusicPlayer=(prop)=>{
             method:'POST',
             headers:{'Content-Type':'application/json'}
         }
-        axios.put('https://pppsd.herokuapp.com/spotify/skip-song',requestOptions)
+        axios.put('http://ppsw.herokuapp.com/spotify/skip-song',requestOptions)
         // fetch('/spotify/skip-song',requestOptions)
     }
   
