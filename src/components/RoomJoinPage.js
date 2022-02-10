@@ -23,7 +23,7 @@ const RoomJoinPage = () => {
         }),
       };
       // fetch('/api/join-room'
-      axios.post('https://ppsw.herokuapp.com/api/join-room'
+      axios.post('http://127.0.0.1:8000/api/join-room'
       ,requestOptions).then((response)=>{
           if (response.ok){
              navigate(`/room/${state.roomCode}`)

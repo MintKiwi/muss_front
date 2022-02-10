@@ -43,7 +43,7 @@ const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=
     
     //send a request to the local host with requestOptions, take the response and convert it to json,
     // fetch("/api/create-room"
-    axios.post('https://ppsw.herokuapp.com/api/create-room'
+    axios.post('http://127.0.0.1:8000/api/create-room'
     , requestOptions)
       .then((response) => response.json())
       .then((data) => navigate("/room/" + data.code));
@@ -66,7 +66,7 @@ const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=
     
     //send a request to the local host with requestOptions, take the response and convert it to json,
     // fetch("/api/update-room"
-    axios.patch('https://ppsw.herokuapp.com/api/update-room'
+    axios.patch('http://127.0.0.1:8000/api/update-room'
     , requestOptions)
       .then((response) => {
         if(response.ok){
