@@ -30,7 +30,7 @@ const HomePage = () => {
 
   useEffect(() => {
     //  fetch("api/user-in-room")
-     axios.get('http://ppsw.herokuapp.com/api/user-in-room')
+     axios.get('https://ppsw.herokuapp.com/api/user-in-room')
       .then((response) => response.json())
       .then((data) => {
         setState({ roomCode: data.code });
