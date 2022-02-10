@@ -34,7 +34,7 @@ const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=
   const createButtonPressed = () => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json","Content-Length":"58" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         votes_to_skip:votes_to_skip,
         guest_can_pause:guest_can_pause,
