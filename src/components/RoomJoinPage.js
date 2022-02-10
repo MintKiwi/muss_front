@@ -23,7 +23,7 @@ const RoomJoinPage = () => {
         }),
       };
       // fetch('/api/join-room'
-      axios.post('https://ppsw.herokuapp.com/api/join-room'
+      axios.post('https://pppsd.herokuapp.com/api/join-room'
       ,requestOptions).then((response)=>{
           if (response.ok){
              navigate(`/room/${state.roomCode}`)
