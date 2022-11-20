@@ -177,6 +177,7 @@ const Room = () => {
     // console.log(state)
     // console.log('authenticateSpotify')
     //  fetch('/spotify/is-authenticated')
+    console.log("000011")
     axios.get(`${baseUrl}/spotify/is-authenticated`)
      .then((response)=>{
       setState({...state,spotifyAuthenticated:response.data.status,})
