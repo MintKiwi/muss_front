@@ -19,7 +19,7 @@ import {
 import Room from "./Room";
 import axios from "axios";
 // const defaultVotes = 2;
-
+const baseUrl = 'https://musicbackend-production-9899.up.railway.app'
 const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=true,updateCallback=()=>{}}) => {
 
   
@@ -32,21 +32,21 @@ const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=
   //only use hooks at the top level
   const navigate = useNavigate();
   const createButtonPressed = () => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        votes_to_skip:votes_to_skip,
-        guest_can_pause:guest_can_pause,
-      }),
-    };
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({
+    //     votes_to_skip:votes_to_skip,
+    //     guest_can_pause:guest_can_pause,
+    //   }),
+    // };
     
     //send a request to the local host with requestOptions, take the response and convert it to json,
     // fetch("/api/create-room"
-    axios.post('https://musicbackend-production-9899.up.railway.app/api/create-room'
-    , requestOptions)
-      .then((response) => response.json())
-      .then((data) => navigate("/room/" + data.code));
+    axios.post(`${baseUrl}/api/create-room`
+    , {"votes_to_skip":votes_to_skip,"guest_can_pause":guest_can_pause})
+      .then((response) => navigate("/room/" + response.data.code));
+      
   };
   const updateButtonPressed=()=>{
     // console.log({roomCode})
@@ -54,20 +54,22 @@ const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=
     // console.log({guestCanPause})
     // console.log({updateCallback})
     
-    const requestOptions = {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        votes_to_skip:votes_to_skip,
-        guest_can_pause:guest_can_pause,
-        code:roomCode
-      }),
-    };
+    // const requestOptions = {
+    //   method: "PATCH",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({
+    //     votes_to_skip:votes_to_skip,
+    //     guest_can_pause:guest_can_pause,
+    //     code:roomCode
+    //   }),
+    // };
     
     //send a request to the local host with requestOptions, take the response and convert it to json,
     // fetch("/api/update-room"
-    axios.patch('https://musicbackend-production-9899.up.railway.app/api/update-room'
-    , requestOptions)
+    axios.patch(`${baseUrl}/api/update-room`
+    , {"votes_to_skip":votes_to_skip,
+      "guest_can_pause":guest_can_pause,
+      "code":roomCode})
       .then((response) => {
         if(response.ok){
             alert("Update successfully")

@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import MusicPlayer from "./MusicPlayer";
 import axios from "axios";
 
+const baseUrl = 'https://musicbackend-production-9899.up.railway.app'
 const Room = () => {
   // const state={votesToSkip:2,guestCanPause:false,isHost:false}
   const [state, setState] = useState({
@@ -31,37 +32,30 @@ const Room = () => {
   // let interval=null
   
   const getRoomDetails = () => {
-    console.log("11")
+  
     //  fetch("/api/get-room" + "?code=" + roomCode)
-    axios.get('https://musicbackend-production-9899.up.railway.app/api/get-room' + "?code=" + roomCode)
+    axios.get(`${baseUrl}/api/get-room` + "?code=" + roomCode)
       .then((response) => {
         //clear the room code when leave the room
-        console.log(response)
+       
         if (!response.ok) {
           clearRoomCode();
           navigate("/");
         }
         
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data)
         setState({
           // ...state,
-          votesToSkip: data.votes_to_skip,
-          guestCanPause: data.guest_can_pause,
-          isHost: data.is_host,
+          votesToSkip: response.data.votes_to_skip,
+          guestCanPause: response.data.guest_can_pause,
+          isHost: response.data.is_host,
           spotifyAuthenticated:state.spotifyAuthenticated,
           
         });
-        // useEffect(()=>{console.log(state)},[state.votesToSkip])
-        // console.log(state)
-        
-
         if(state.isHost){
-        authenticateSpotify();
-        }
+          authenticateSpotify();
+          }
       });
+      
 
       
   };
@@ -76,16 +70,16 @@ const Room = () => {
   // useEffect(()=>{return clearInterval(interval)})
  const getCurrentSong=()=>{
   //  fetch("/spotify/current-song")
-  axios.get('https://musicbackend-production-9899.up.railway.app/spotify/current-song')
+  axios.get(`${baseUrl}/spotify/current-song`)
    .then((response)=>{
      if(!response.ok){
        return {};
      }
      else{
       //  console.log(response)
-       return response.json();
+      setSong({song:response.data})
      }
-   }).then((data)=>{setSong({song:data})})
+   })
  }
 
 
@@ -156,7 +150,7 @@ const Room = () => {
     };
     // fetch("/api/leave-room"
     
-    axios.post('https://musicbackend-production-9899.up.railway.app/api/leave-room'
+    axios.post(`${baseUrl}/api/leave-room`
     , requestOptions).then((response) => {
       clearRoomCode();
       navigate("/");
@@ -183,16 +177,14 @@ const Room = () => {
     // console.log(state)
     // console.log('authenticateSpotify')
     //  fetch('/spotify/is-authenticated')
-    axios.get('https://musicbackend-production-9899.up.railway.app/spotify/is-authenticated')
+    axios.get(`${baseUrl}/spotify/is-authenticated`)
      .then((response)=>response.json()).then((data)=>{
       setState({...state,spotifyAuthenticated:data.status,})
       // console.log(state);
       if(!data.status){
         // fetch('/spotify/get-auth-url')
-        axios.get('https://musicbackend-production-9899.up.railway.app/spotify/get-auth-url')
-        .then((response)=>response.json()).then((data)=>{
-          window.location.replace(data.url);
-        })
+        axios.get(`${baseUrl}/spotify/get-auth-url`)
+        .then((response)=>{window.location.replace(response.data.url);})
       }
     });
   }

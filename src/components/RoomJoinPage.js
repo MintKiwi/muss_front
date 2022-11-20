@@ -8,6 +8,8 @@ import {
 } from "@material-ui/core";
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
+
+const baseUrl = 'https://musicbackend-production-9899.up.railway.app'
 const RoomJoinPage = () => {
   const [state, setState] = useState({
     roomCode: "",
@@ -15,16 +17,16 @@ const RoomJoinPage = () => {
   });
   let navigate=useNavigate();
   const submitButton=()=>{
-    const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          code: state.roomCode
-        }),
-      };
+    // const requestOptions = {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({
+    //       code: state.roomCode
+    //     }),
+    //   };
       // fetch('/api/join-room'
-      axios.post('https://musicbackend-production-9899.up.railway.app/api/join-room'
-      ,requestOptions).then((response)=>{
+      axios.post(`${baseUrl}/api/join-room`
+      ,{"code":state.roomCode}).then((response)=>{
           if (response.ok){
              navigate(`/room/${state.roomCode}`)
           }

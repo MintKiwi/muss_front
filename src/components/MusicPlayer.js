@@ -6,6 +6,7 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 import Plyer from "./Plyer";
 import axios from "axios";
 
+const baseUrl = 'https://musicbackend-production-9899.up.railway.app'
 const MusicPlayer=(prop)=>{
     const props={...prop.song}
     const songProgress=props.time/props.duration*100
@@ -15,7 +16,7 @@ const MusicPlayer=(prop)=>{
             headers:{'Content-Type':'application/json'},
 
         }
-        axios.put('https://musicbackend-production-9899.up.railway.app/spotify/pause-song',requestOptions)
+        axios.put(`${baseUrl}/spotify/pause-song`,requestOptions)
         // fetch('/spotify/pause-song',requestOptions)
     }
 
@@ -25,7 +26,7 @@ const MusicPlayer=(prop)=>{
             headers:{'Content-Type':'application/json'},
 
         }
-        axios.put('https://musicbackend-production-9899.up.railway.app/spotify/play-song',requestOptions)
+        axios.put(`${baseUrl}/spotify/play-song`,requestOptions)
         // fetch('/spotify/play-song',requestOptions)
     }
     const skipSong=()=>{
@@ -33,7 +34,7 @@ const MusicPlayer=(prop)=>{
             method:'POST',
             headers:{'Content-Type':'application/json'}
         }
-        axios.put('https://musicbackend-production-9899.up.railway.app/spotify/skip-song',requestOptions)
+        axios.put(`${baseUrl}/spotify/skip-song`,requestOptions)
         // fetch('/spotify/skip-song',requestOptions)
     }
   
