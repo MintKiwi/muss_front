@@ -178,10 +178,10 @@ const Room = () => {
     // console.log('authenticateSpotify')
     //  fetch('/spotify/is-authenticated')
     axios.get(`${baseUrl}/spotify/is-authenticated`)
-     .then((response)=>response.json()).then((data)=>{
-      setState({...state,spotifyAuthenticated:data.status,})
+     .then((response)=>{
+      setState({...state,spotifyAuthenticated:response.data.status,})
       // console.log(state);
-      if(!data.status){
+      if(!response.data.status){
         // fetch('/spotify/get-auth-url')
         axios.get(`${baseUrl}/spotify/get-auth-url`)
         .then((response)=>{window.location.replace(response.data.url);})
