@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/muss_front/static/css/main.e6c13ad2.css",
+    "main.js": "/muss_front/static/js/main.fc1f5e39.js",
+    "static/js/787.cda612ba.chunk.js": "/muss_front/static/js/787.cda612ba.chunk.js",
+    "index.html": "/muss_front/index.html",
+    "main.e6c13ad2.css.map": "/muss_front/static/css/main.e6c13ad2.css.map",
+    "main.fc1f5e39.js.map": "/muss_front/static/js/main.fc1f5e39.js.map",
+    "787.cda612ba.chunk.js.map": "/muss_front/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.fc1f5e39.js"
+  ]
+}
