@@ -9,7 +9,8 @@ import {
 import { Link, Navigate } from "react-router-dom";
 
 import { useEffect } from "react";
-import axios from "axios";
+import axios from "axios";ç
+const baseUrl = 'https://musicbackend-production-9899.up.railway.app'
 const HomePage = () => {
   const [state, setState] = useState({
     roomCode: null,
@@ -30,11 +31,9 @@ const HomePage = () => {
 
   useEffect(() => {
     //  fetch("api/user-in-room")
-     axios.get('https://musicbackend-production-9899.up.railway.app/api/user-in-room')
-      .then((response) => response.json())
-      .then((data) => {
-        setState({ roomCode: data.code });
-      });
+     axios.get(`${baseUrl}/api/user-in-room`)
+      .then((response) => setState({roomCode : response.data.code}));
+     
       
   },[state.roomCode]);
 
