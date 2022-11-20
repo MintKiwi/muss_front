@@ -39,10 +39,11 @@ const App = ()=> {
     <BrowserRouter>
         <Routes>
 
-            <Route path="/" element={<HomePage />}/>
+            
             <Route path="/join" element={<RoomJoinPage />}/>
             <Route path="/create" element={<RoomCreatePage />} />
             <Route path="/room/:roomCode" element={<Room />} />
+            <Route path="/" element={<HomePage />}/>
             
         
             
