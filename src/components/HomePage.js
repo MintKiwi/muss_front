@@ -9,7 +9,7 @@ import {
 import { Link, Navigate } from "react-router-dom";
 
 import { useEffect } from "react";
-import axios from "axios";ç
+import axios from "axios";
 const baseUrl = 'https://musicbackend-production-9899.up.railway.app'
 const HomePage = () => {
   const [state, setState] = useState({
