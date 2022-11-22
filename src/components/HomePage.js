@@ -10,7 +10,7 @@ import { Link, Navigate } from "react-router-dom";
 
 import { useEffect } from "react";
 import axios from "axios";
-const baseUrl = 'https://muscroom.azurewebsites.net'
+const baseUrl = 'https://ppsw.herokuapp.com'
 const HomePage = () => {
   const [state, setState] = useState({
     roomCode: null,

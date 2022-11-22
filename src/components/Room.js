@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import MusicPlayer from "./MusicPlayer";
 import axios from "axios";
 
-const baseUrl = 'https://muscroom.azurewebsites.net'
+const baseUrl = 'https://ppsw.herokuapp.com'
 const Room = () => {
   // const state={votesToSkip:2,guestCanPause:false,isHost:false}
   const [state, setState] = useState({

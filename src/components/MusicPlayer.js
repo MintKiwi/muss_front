@@ -6,7 +6,7 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 import Plyer from "./Plyer";
 import axios from "axios";
 
-const baseUrl = 'https://muscroom.azurewebsites.net'
+const baseUrl = 'https://ppsw.herokuapp.com'
 const MusicPlayer=(prop)=>{
     const props={...prop.song}
     const songProgress=props.time/props.duration*100
