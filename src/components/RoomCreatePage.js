@@ -19,7 +19,7 @@ import {
 import Room from "./Room";
 import axios from "axios";
 // const defaultVotes = 2;
-const baseUrl = 'https://musicbackend-production-9899.up.railway.app'
+const baseUrl = 'https://muscroom.azurewebsites.net'
 const RoomCreatePage = ({update=false,roomCode=null,votesToSkip=2,guestCanPause=true,updateCallback=()=>{}}) => {
 
   

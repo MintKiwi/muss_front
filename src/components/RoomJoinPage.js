@@ -9,7 +9,7 @@ import {
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const baseUrl = 'https://musicbackend-production-9899.up.railway.app'
+const baseUrl = 'https://muscroom.azurewebsites.net'
 const RoomJoinPage = () => {
   const [state, setState] = useState({
     roomCode: "",

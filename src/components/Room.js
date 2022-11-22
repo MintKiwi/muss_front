@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import MusicPlayer from "./MusicPlayer";
 import axios from "axios";
 
-const baseUrl = 'https://musicbackend-production-9899.up.railway.app'
+const baseUrl = 'https://muscroom.azurewebsites.net'
 const Room = () => {
   // const state={votesToSkip:2,guestCanPause:false,isHost:false}
   const [state, setState] = useState({
@@ -51,6 +51,7 @@ const Room = () => {
           spotifyAuthenticated:state.spotifyAuthenticated,
           
         });
+        
         if(state.isHost){
           authenticateSpotify();
           }
@@ -173,11 +174,12 @@ const Room = () => {
   //       }
   //     });
   // }
+  
   const authenticateSpotify=()=>{
     // console.log(state)
     // console.log('authenticateSpotify')
     //  fetch('/spotify/is-authenticated')
-    console.log("000011")
+    console.log("001")
     axios.get(`${baseUrl}/spotify/is-authenticated`)
      .then((response)=>{
       setState({...state,spotifyAuthenticated:response.data.status,})
@@ -189,7 +191,7 @@ const Room = () => {
       }
     });
   }
- 
+
   const renderSettings = () => {
     // console.log('renderSettings')
     // classes=useStyles()
