@@ -9,7 +9,7 @@ import {
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const baseUrl = 'https://ppsw.herokuapp.com'
+const baseUrl = 'http://127.0.0.1:8000'
 const RoomJoinPage = () => {
   const [state, setState] = useState({
     roomCode: "",

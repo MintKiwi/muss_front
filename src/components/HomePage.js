@@ -10,7 +10,7 @@ import { Link, Navigate } from "react-router-dom";
 
 import { useEffect } from "react";
 import axios from "axios";
-const baseUrl = 'https://ppsw.herokuapp.com'
+const baseUrl = 'http://127.0.0.1:8000'
 const HomePage = () => {
   const [state, setState] = useState({
     roomCode: null,
